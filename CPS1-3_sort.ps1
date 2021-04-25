@@ -3,17 +3,29 @@
 
 $source = "roms"
 
+$path = "cps1"
+If (!(Test-Path $path)) {
+	New-Item -ItemType Directory -Force -Path $path
+}
 $files = Get-Content cps1.txt
-foreach ($file in $files) {
-    Copy-Item $source\$file "cps1"
+ForEach ($file in $files) {
+    Copy-Item $source\$file $path
 }
 
+$path = "cps2"
+If (!(Test-Path $path)) {
+	New-Item -ItemType Directory -Force -Path $path
+}
 $files = Get-Content cps2.txt
-foreach ($file in $files) {
-    Copy-Item $source\$file "cps2"
+ForEach ($file in $files) {
+    Copy-Item $source\$file $path
 }
 
+$path = "cps3"
+If (!(Test-Path $path)) {
+	New-Item -ItemType Directory -Force -Path $path
+}
 $files = Get-Content cps3.txt
-foreach ($file in $files) {
-    Copy-Item $source\$file "cps3"
+ForEach ($file in $files) {
+    Copy-Item $source\$file $path
 }
